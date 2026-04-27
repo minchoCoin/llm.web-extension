@@ -40,7 +40,14 @@ scripts/
   clean.mjs
 ```
 
-## Run
+## quick run
+1. download [dist.zip](https://github.com/minchoCoin/llm.web-extension/releases/download/v1.0.0/dist.zip) and unzip
+2. Open `chrome://extensions`.
+3. Enable Developer mode.
+4. Click `Load unpacked`.
+5. Select the `dist` folder.
+
+## Build and run guide
 
 1. Install dependencies.
 2. Build the extension.

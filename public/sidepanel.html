@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>llm.extension</title>
+    <link rel="stylesheet" href="./vendor/katex.min.css" />
+    <link rel="stylesheet" href="./styles/sidepanel.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">llm.extension</p>
+          <h1>llm.extension</h1>
+        </div>
+        <button id="clear-chat-button" class="ghost-button" type="button">Clear</button>
+      </header>
+
+      <section class="settings-card">
+        <div class="settings-header">
+          <h2 class="section-title">Settings</h2>
+          <button id="toggle-settings-button" class="ghost-button" type="button" aria-expanded="false">Show</button>
+        </div>
+
+        <div id="settings-content" class="settings-content">
+          <div class="settings-grid">
+            <label>
+              <span>System Prompt</span>
+              <textarea id="system-prompt-input" rows="3" placeholder="You are a helpful assistant."></textarea>
+            </label>
+
+            <label>
+              <span>API Type</span>
+              <select id="api-type-select">
+                <option value="openai-compatible">OpenAI Compatible</option>
+                <option value="ollama">Ollama</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Local Base URL</span>
+              <input id="local-base-url-input" type="text" placeholder="http://127.0.0.1:11434" />
+            </label>
+
+            <label>
+              <span>Local Model</span>
+              <input id="local-model-input" type="text" placeholder="llama3.1" />
+            </label>
+
+            <label>
+              <span>Webpage Context Characters</span>
+              <input id="page-context-max-chars-input" type="number" min="1000" max="50000" step="500" />
+            </label>
+          </div>
+
+          <button id="save-settings-button" class="secondary-button" type="button">Save Settings</button>
+        </div>
+      </section>
+
+      <section class="session-card">
+        <div class="session-toolbar">
+          <label class="session-select-wrap">
+            <span>Session</span>
+            <select id="session-select"></select>
+          </label>
+          <div class="session-actions">
+            <button id="new-session-button" class="ghost-button" type="button">New</button>
+            <button id="delete-session-button" class="ghost-button" type="button">Delete</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="chat-list" class="chat-list" aria-live="polite"></section>
+
+      <footer class="composer">
+        <label class="composer-field">
+          <span class="sr-only">Message</span>
+          <input id="image-input" class="sr-only" type="file" accept="image/*" multiple />
+          <div class="composer-input-shell">
+            <button id="attach-image-button" class="composer-plus-button" type="button" aria-label="Add images">+</button>
+            <textarea id="message-input" rows="1" placeholder="Ask something..."></textarea>
+          </div>
+        </label>
+        <p class="hint-text">Add images with + or paste from clipboard. Up to 3 images, 2 MB each.</p>
+        <label class="page-context-toggle">
+          <input id="page-context-toggle" type="checkbox" />
+          <span>Use this webpage as context</span>
+        </label>
+        <label class="page-context-toggle">
+          <input id="selected-text-only-toggle" type="checkbox" checked />
+          <span>Use selected text only</span>
+        </label>
+        <div id="attachment-preview-list" class="attachment-preview-list"></div>
+        <div class="composer-actions">
+          <p id="status-text" class="status-text">Ready.</p>
+          <button id="send-button" class="primary-button" type="button">Send</button>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./vendor/marked.umd.js"></script>
+    <script src="./vendor/katex.min.js"></script>
+    <script src="./vendor/auto-render.min.js"></script>
+    <script type="module" src="./src/sidepanel.js"></script>
+  </body>
+</html>

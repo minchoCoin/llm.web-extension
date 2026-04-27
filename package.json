@@ -1,0 +1,18 @@
+{
+  "name": "llm.extension",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-static.mjs",
+    "clean": "node scripts/clean.mjs"
+  },
+  "dependencies": {
+    "katex": "^0.16.22",
+    "marked": "^16.4.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.24",
+    "typescript": "^5.8.3"
+  }
+}

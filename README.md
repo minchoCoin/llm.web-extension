@@ -42,6 +42,28 @@ scripts/
   clean.mjs
 ```
 
+## run local llm before install this extension
+1. download llama.cpp
+```
+git clone https://github.com/ggml-org/llama.cpp
+cd llama.cpp
+```
+
+2. build
+
+```
+cmake -B build
+cmake --build build --config Release
+```
+
+3. download local LLM: 
+for example, download [gemma-4-E2B-it-Q4_K_M.gguf](https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/blob/main/gemma-4-E2B-it-Q4_K_M.gguf) and [mmproj-f16.gguf](https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/blob/main/mmproj-F16.gguf) at `models` folder.
+
+4. run llama.cpp server
+```
+llama.cpp/build/bin/llama-server -m models/gemma-4-E2B-it-Q4_K_M.gguf --mmproj models/gemma4-e2b-it-mmproj-F16.gguf --reasoning off
+```
+
 ## quick run
 1. download [dist.zip](https://github.com/minchoCoin/llm.web-extension/releases/download/v1.0.0/dist.zip) and unzip
 2. Open `chrome://extensions`.

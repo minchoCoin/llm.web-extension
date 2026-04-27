@@ -4,6 +4,8 @@ TypeScript Chrome extension for chatting with a local LLM server from a Chrome s
 
 [Video](https://youtu.be/hCEi2JPyUc4)
 
+![asset](assets/run.PNG)
+
 ## Included
 
 - Manifest V3 extension structure
